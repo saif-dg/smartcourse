@@ -18,7 +18,7 @@ export default function About() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
           <Network className="h-5 w-5" />
         </div>
         <div>
@@ -31,15 +31,13 @@ export default function About() {
         </div>
       </div>
 
-      <div className="mt-8 grid gap-5 md:grid-cols-2">
+      <div className="mt-8 grid gap-4 md:grid-cols-2">
         <Card className="animate-fade-up" style={{ animationDelay: "0ms" }}>
           <CardHeader className="pb-3">
-            <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Workflow className="h-4 w-4" />
             </div>
-            <CardTitle className="font-heading text-base font-semibold">
-              System Overview
-            </CardTitle>
+            <CardTitle>System Overview</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-relaxed text-muted-foreground">
             <p>
@@ -58,12 +56,10 @@ export default function About() {
 
         <Card className="animate-fade-up" style={{ animationDelay: "80ms" }}>
           <CardHeader className="pb-3">
-            <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Layers className="h-4 w-4" />
             </div>
-            <CardTitle className="font-heading text-base font-semibold">
-              Architecture
-            </CardTitle>
+            <CardTitle>Architecture</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-relaxed text-muted-foreground">
             <p>
@@ -80,10 +76,10 @@ export default function About() {
 
         <Card className="animate-fade-up" style={{ animationDelay: "160ms" }}>
           <CardHeader className="pb-3">
-            <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-gold/10 text-gold">
+            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400">
               <Cpu className="h-4 w-4" />
             </div>
-            <CardTitle className="font-heading text-base font-semibold">
+            <CardTitle>
               TF-IDF Model
               <span className="ml-2 text-xs font-normal text-muted-foreground">
                 Keyword Matching
@@ -105,10 +101,10 @@ export default function About() {
 
         <Card className="animate-fade-up" style={{ animationDelay: "240ms" }}>
           <CardHeader className="pb-3">
-            <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-gold/10 text-gold">
+            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400">
               <Brain className="h-4 w-4" />
             </div>
-            <CardTitle className="font-heading text-base font-semibold">
+            <CardTitle>
               Neural Model
               <span className="ml-2 text-xs font-normal text-muted-foreground">
                 Semantic Understanding
@@ -129,14 +125,9 @@ export default function About() {
           </CardContent>
         </Card>
 
-        <Card
-          className="animate-fade-up md:col-span-2"
-          style={{ animationDelay: "320ms" }}
-        >
+        <Card className="animate-fade-up md:col-span-2" style={{ animationDelay: "320ms" }}>
           <CardHeader className="pb-3">
-            <CardTitle className="font-heading text-base font-semibold">
-              Tech Stack
-            </CardTitle>
+            <CardTitle>Tech Stack</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid gap-6 sm:grid-cols-3">
@@ -152,13 +143,7 @@ export default function About() {
                     </div>
                     <div className="flex flex-wrap gap-1.5">
                       {items.map((item) => (
-                        <Badge
-                          key={item}
-                          variant="secondary"
-                          className="bg-primary/10 text-primary border-0"
-                        >
-                          {item}
-                        </Badge>
+                        <Badge key={item}>{item}</Badge>
                       ))}
                     </div>
                   </div>
@@ -168,17 +153,12 @@ export default function About() {
           </CardContent>
         </Card>
 
-        <Card
-          className="animate-fade-up md:col-span-2"
-          style={{ animationDelay: "400ms" }}
-        >
+        <Card className="animate-fade-up md:col-span-2" style={{ animationDelay: "400ms" }}>
           <CardHeader className="pb-3">
-            <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Database className="h-4 w-4" />
             </div>
-            <CardTitle className="font-heading text-base font-semibold">
-              Dataset
-            </CardTitle>
+            <CardTitle>Dataset</CardTitle>
           </CardHeader>
           <CardContent className="text-sm leading-relaxed text-muted-foreground">
             <p>
@@ -192,7 +172,7 @@ export default function About() {
         </Card>
       </div>
 
-      <div className="mt-10 border-t border-border/50 pt-6 text-center text-sm text-muted-foreground/60">
+      <div className="mt-10 border-t border-border pt-6 text-center text-sm text-muted-foreground/60">
         <p>
           Project ID: F25PROJECTBBD65 (BC200401890) &middot; Supervisor:
           Muhammad Bilal

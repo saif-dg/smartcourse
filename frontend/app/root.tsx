@@ -35,7 +35,9 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <Outlet />
+      <main className="pt-16">
+        <Outlet />
+      </main>
     </>
   )
 }
@@ -57,11 +59,11 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="mx-auto max-w-2xl p-8 pt-20">
-      <h1 className="font-heading text-4xl font-bold text-emerald">{message}</h1>
-      <p className="mt-3 text-muted-foreground">{details}</p>
+    <main className="container mx-auto p-4 pt-16">
+      <h1 className="font-heading text-3xl font-bold text-primary">{message}</h1>
+      <p className="mt-2 text-muted-foreground">{details}</p>
       {stack && (
-        <pre className="mt-6 overflow-x-auto rounded-xl bg-navy-light p-5 text-sm text-muted-foreground">
+        <pre className="mt-4 w-full overflow-x-auto rounded-xl bg-card p-4 text-sm">
           <code>{stack}</code>
         </pre>
       )}

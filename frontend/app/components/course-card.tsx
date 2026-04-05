@@ -12,15 +12,15 @@ import { Progress } from "~/components/ui/progress"
 import type { Course } from "~/lib/types"
 
 function scoreColor(score: number) {
-  if (score >= 70) return "text-emerald"
-  if (score >= 40) return "text-amber"
-  return "text-red-400"
+  if (score >= 70) return "text-emerald-600"
+  if (score >= 40) return "text-amber-600"
+  return "text-red-500"
 }
 
 function progressColor(score: number) {
-  if (score >= 70) return "[&>div]:bg-emerald"
-  if (score >= 40) return "[&>div]:bg-amber"
-  return "[&>div]:bg-red-400"
+  if (score >= 70) return "[&>div]:bg-emerald-500"
+  if (score >= 40) return "[&>div]:bg-amber-500"
+  return "[&>div]:bg-red-500"
 }
 
 interface CourseCardProps {
@@ -31,22 +31,20 @@ interface CourseCardProps {
 
 export function CourseCard({ course, onSave, saving }: CourseCardProps) {
   return (
-    <Card className="service-card overflow-hidden border-[#1e3a54] bg-navy-card transition-all hover:border-emerald/30">
+    <Card>
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between gap-2">
           <div className="space-y-1">
-            <CardTitle className="font-heading text-base leading-snug text-white">
+            <CardTitle className="text-base leading-snug">
               {course.course_title}
             </CardTitle>
-            <CardDescription className="text-[#8899aa]">
-              {course.university}
-            </CardDescription>
+            <CardDescription>{course.university}</CardDescription>
           </div>
           {onSave && (
             <Button
               variant="ghost"
               size="icon"
-              className="shrink-0 text-[#8899aa] hover:bg-emerald/10 hover:text-emerald"
+              className="shrink-0 text-muted-foreground hover:text-primary"
               onClick={() => onSave(course.course_id)}
               disabled={saving}
             >
@@ -55,25 +53,21 @@ export function CourseCard({ course, onSave, saving }: CourseCardProps) {
           )}
         </div>
         <div className="flex flex-wrap gap-1.5 pt-1">
-          <Badge className="border-0 bg-emerald/10 text-emerald">
-            {course.department}
-          </Badge>
-          <Badge variant="outline" className="border-[#1e3a54] text-[#8899aa]">
-            {course.difficulty}
-          </Badge>
-          <Badge variant="outline" className="border-amber/30 text-amber">
+          <Badge>{course.department}</Badge>
+          <Badge variant="outline">{course.difficulty}</Badge>
+          <Badge variant="outline" className="border-amber-500/30 text-amber-600">
             Rating: {course.rating}
           </Badge>
         </div>
       </CardHeader>
       <CardContent className="space-y-3">
-        <p className="text-sm leading-relaxed text-[#8899aa]">
+        <p className="text-sm leading-relaxed text-muted-foreground">
           {course.description}
         </p>
         <div className="flex items-center gap-3">
           <Progress
             value={course.relevance_score}
-            className={`h-1.5 flex-1 bg-[#1a3350] ${progressColor(course.relevance_score)}`}
+            className={`h-1.5 flex-1 ${progressColor(course.relevance_score)}`}
           />
           <span
             className={`text-sm font-semibold tabular-nums ${scoreColor(course.relevance_score)}`}

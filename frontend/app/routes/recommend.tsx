@@ -3,6 +3,7 @@ import { Search, Sparkles } from "lucide-react"
 import { toast } from "sonner"
 import { CourseCard } from "~/components/course-card"
 import { Button } from "~/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
 import {
   Select,
   SelectContent,
@@ -68,39 +69,39 @@ export default function Recommend() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-10">
+    <div className="container mx-auto px-4 py-8">
       <div className="flex items-center gap-3">
-        <div className="icon-box icon-box-dark">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
           <Sparkles className="h-5 w-5" />
         </div>
         <div>
-          <h1 className="font-heading text-2xl font-bold tracking-tight text-white">
+          <h1 className="font-heading text-2xl font-bold tracking-tight">
             Course Recommendation Engine
           </h1>
-          <p className="text-sm text-[#8899aa]">
+          <p className="text-sm text-muted-foreground">
             Describe what you want to learn in natural language
           </p>
         </div>
       </div>
 
-      <div className="mt-6 rounded-2xl border border-[#1e3a54] bg-navy-card p-6">
-        <h3 className="font-heading text-sm font-semibold text-white">
-          Your Preferences
-        </h3>
-        <div className="mt-4 space-y-4">
+      <Card className="mt-6">
+        <CardHeader>
+          <CardTitle className="text-base">Your Preferences</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
           <Textarea
             placeholder='e.g. "I want to learn Python for data science and machine learning"'
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             rows={3}
-            className="resize-none border-[#1e3a54] bg-navy/60 text-white placeholder:text-[#5a6a7a] focus:border-emerald/40 focus:bg-navy"
+            className="resize-none"
           />
           <div className="flex flex-wrap items-center gap-3">
             <Select value={model} onValueChange={setModel}>
-              <SelectTrigger className="w-48 border-[#1e3a54] bg-navy/60 text-white">
+              <SelectTrigger className="w-48">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="border-[#1e3a54] bg-navy-light text-white">
+              <SelectContent>
                 <SelectItem value="tfidf">TF-IDF Model</SelectItem>
                 <SelectItem value="neural">Neural Model</SelectItem>
                 <SelectItem value="both">Compare Both</SelectItem>
@@ -109,24 +110,22 @@ export default function Recommend() {
             <Button
               onClick={handleSearch}
               disabled={loading || !query.trim()}
-              className="btn-primary gap-2 rounded-full px-6"
+              className="gap-2 rounded-full px-6"
             >
               <Search className="h-4 w-4" />
               {loading ? "Searching..." : "Search"}
             </Button>
           </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
 
       {response && (
         <div className="mt-10">
           <div className="mb-5 flex items-baseline gap-2">
-            <h2 className="font-heading text-lg font-semibold text-white">
-              Results
-            </h2>
-            <span className="text-sm text-[#8899aa]">
+            <h2 className="font-heading text-lg font-semibold">Results</h2>
+            <span className="text-sm text-muted-foreground">
               &ldquo;{response.query}&rdquo; &middot;{" "}
-              <span className="font-medium text-emerald">
+              <span className="font-medium text-primary">
                 {response.model.toUpperCase()}
               </span>
             </span>
@@ -136,14 +135,14 @@ export default function Recommend() {
           response.tfidf_results &&
           response.neural_results ? (
             <Tabs defaultValue="tfidf">
-              <TabsList className="border border-[#1e3a54] bg-navy-light">
+              <TabsList>
                 <TabsTrigger value="tfidf">TF-IDF Results</TabsTrigger>
                 <TabsTrigger value="neural">Neural Results</TabsTrigger>
               </TabsList>
-              <TabsContent value="tfidf" className="mt-5">
+              <TabsContent value="tfidf" className="mt-4">
                 {renderCourseList(response.tfidf_results)}
               </TabsContent>
-              <TabsContent value="neural" className="mt-5">
+              <TabsContent value="neural" className="mt-4">
                 {renderCourseList(response.neural_results)}
               </TabsContent>
             </Tabs>
