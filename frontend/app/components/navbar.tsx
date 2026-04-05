@@ -12,30 +12,40 @@ export function Navbar() {
   const location = useLocation()
 
   return (
-    <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-sm">
+    <header className="sticky top-0 z-50 border-b border-[#1e3a54] bg-navy/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+        <Link to="/" className="flex items-center gap-2.5">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald font-heading text-xs font-bold text-navy">
             SC
           </div>
-          <span className="font-heading text-lg font-semibold">SmartCourse</span>
+          <span className="font-heading text-lg font-semibold tracking-tight text-white">
+            SmartCourse
+          </span>
         </Link>
-        <nav className="flex items-center gap-1">
-          {links.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={cn(
-                "px-3 py-2 text-sm font-medium rounded-md transition-colors",
-                location.pathname === link.to
-                  ? "bg-accent text-accent-foreground"
-                  : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-1">
+          <nav className="flex items-center gap-0.5">
+            {links.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={cn(
+                  "rounded-lg px-3.5 py-2 text-sm font-medium transition-colors",
+                  location.pathname === link.to
+                    ? "text-white"
+                    : "text-[#8899aa] hover:text-white"
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          <Link
+            to="/recommend"
+            className="btn-primary ml-3 rounded-full px-5 py-2 text-sm"
+          >
+            Get Started
+          </Link>
+        </div>
       </div>
     </header>
   )

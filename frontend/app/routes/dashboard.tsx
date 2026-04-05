@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
+import { LayoutDashboard, Trash2 } from "lucide-react"
 import { toast } from "sonner"
 import { Badge } from "~/components/ui/badge"
 import { Button } from "~/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
 import {
   Table,
   TableBody,
@@ -42,21 +42,33 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <p className="text-muted-foreground">Loading dashboard...</p>
+      <div className="flex items-center justify-center px-6 py-28">
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-emerald border-t-transparent" />
+          <p className="text-sm text-[#8899aa]">Loading dashboard...</p>
+        </div>
       </div>
     )
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="font-heading text-2xl font-bold">User Dashboard</h1>
-      <p className="mt-1 text-muted-foreground">
-        Your search history and saved recommendations
-      </p>
+    <div className="mx-auto max-w-6xl px-6 py-10">
+      <div className="flex items-center gap-3">
+        <div className="icon-box icon-box-dark">
+          <LayoutDashboard className="h-5 w-5" />
+        </div>
+        <div>
+          <h1 className="font-heading text-2xl font-bold tracking-tight text-white">
+            Dashboard
+          </h1>
+          <p className="text-sm text-[#8899aa]">
+            Your search history and saved recommendations
+          </p>
+        </div>
+      </div>
 
       <Tabs defaultValue="history" className="mt-6">
-        <TabsList>
+        <TabsList className="border border-[#1e3a54] bg-navy-light">
           <TabsTrigger value="history">
             Search History ({history.length})
           </TabsTrigger>
@@ -65,93 +77,111 @@ export default function Dashboard() {
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value="history" className="mt-4">
+        <TabsContent value="history" className="mt-5">
           {history.length === 0 ? (
-            <Card>
-              <CardContent className="py-8 text-center text-muted-foreground">
-                No search history yet. Try searching for courses!
-              </CardContent>
-            </Card>
+            <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-[#1e3a54] py-16 text-center">
+              <p className="text-[#8899aa]">No search history yet.</p>
+              <p className="text-sm text-[#5a6a7a]">
+                Try searching for courses to get started!
+              </p>
+            </div>
           ) : (
-            <Card>
+            <div className="overflow-hidden rounded-2xl border border-[#1e3a54] bg-navy-card">
               <Table>
                 <TableHeader>
-                  <TableRow>
-                    <TableHead>Query</TableHead>
-                    <TableHead>Model</TableHead>
-                    <TableHead>Timestamp</TableHead>
+                  <TableRow className="border-[#1e3a54] hover:bg-transparent">
+                    <TableHead className="font-heading font-semibold text-white">
+                      Query
+                    </TableHead>
+                    <TableHead className="font-heading font-semibold text-white">
+                      Model
+                    </TableHead>
+                    <TableHead className="font-heading font-semibold text-white">
+                      Timestamp
+                    </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {history.map((entry) => (
-                    <TableRow key={entry.search_id}>
-                      <TableCell className="font-medium">
+                  {history.map((entry, i) => (
+                    <TableRow
+                      key={entry.search_id}
+                      className="animate-fade-up border-[#1e3a54] hover:bg-navy-light/50"
+                      style={{ animationDelay: `${i * 40}ms` }}
+                    >
+                      <TableCell className="font-medium text-white">
                         {entry.query_text}
                       </TableCell>
                       <TableCell>
-                        <Badge variant="secondary">
+                        <Badge className="border-0 bg-emerald/10 font-mono text-xs text-emerald">
                           {entry.model_used.toUpperCase()}
                         </Badge>
                       </TableCell>
-                      <TableCell className="text-muted-foreground">
+                      <TableCell className="tabular-nums text-[#8899aa]">
                         {new Date(entry.timestamp).toLocaleString()}
                       </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
-            </Card>
+            </div>
           )}
         </TabsContent>
 
-        <TabsContent value="saved" className="mt-4">
+        <TabsContent value="saved" className="mt-5">
           {saved.length === 0 ? (
-            <Card>
-              <CardContent className="py-8 text-center text-muted-foreground">
-                No saved courses yet. Save courses from the recommendation page!
-              </CardContent>
-            </Card>
+            <div className="flex flex-col items-center gap-2 rounded-2xl border border-dashed border-[#1e3a54] py-16 text-center">
+              <p className="text-[#8899aa]">No saved courses yet.</p>
+              <p className="text-sm text-[#5a6a7a]">
+                Save courses from the recommendation page!
+              </p>
+            </div>
           ) : (
             <div className="grid gap-4 md:grid-cols-2">
-              {saved.map((item) => (
-                <Card key={item.save_id}>
-                  <CardHeader className="pb-3">
-                    <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <CardTitle className="text-base">
-                          {item.title}
-                        </CardTitle>
-                        <p className="text-sm text-muted-foreground">
-                          {item.university}
-                        </p>
-                      </div>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-destructive"
-                        onClick={() => handleDelete(item.save_id)}
-                      >
-                        Remove
-                      </Button>
+              {saved.map((item, i) => (
+                <div
+                  key={item.save_id}
+                  className="animate-fade-up service-card rounded-2xl border border-[#1e3a54] bg-navy-card p-5 transition-all hover:border-emerald/30"
+                  style={{ animationDelay: `${i * 60}ms` }}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <h3 className="font-heading text-base font-semibold text-white">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-[#8899aa]">
+                        {item.university}
+                      </p>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-1.5 mb-2">
-                      <Badge variant="outline">
-                        {item.difficulty_level}
-                      </Badge>
-                      <Badge variant="outline">
-                        Rating: {item.rating}
-                      </Badge>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      {item.description}
-                    </p>
-                    <p className="mt-2 text-xs text-muted-foreground">
-                      Saved: {new Date(item.saved_at).toLocaleString()}
-                    </p>
-                  </CardContent>
-                </Card>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="shrink-0 text-[#8899aa] hover:bg-red-500/10 hover:text-red-400"
+                      onClick={() => handleDelete(item.save_id)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    <Badge
+                      variant="outline"
+                      className="border-[#1e3a54] text-[#8899aa]"
+                    >
+                      {item.difficulty_level}
+                    </Badge>
+                    <Badge
+                      variant="outline"
+                      className="border-amber/30 text-amber"
+                    >
+                      Rating: {item.rating}
+                    </Badge>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-[#8899aa]">
+                    {item.description}
+                  </p>
+                  <p className="mt-3 text-xs tabular-nums text-[#5a6a7a]">
+                    Saved {new Date(item.saved_at).toLocaleString()}
+                  </p>
+                </div>
               ))}
             </div>
           )}
