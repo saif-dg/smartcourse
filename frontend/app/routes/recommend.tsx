@@ -84,6 +84,12 @@ export default function Recommend() {
             placeholder='e.g. "I want to learn Python for data science and machine learning"'
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault()
+                handleSearch()
+              }
+            }}
             rows={3}
             className="resize-none"
           />
