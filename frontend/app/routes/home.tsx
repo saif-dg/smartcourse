@@ -1,4 +1,10 @@
+import type { MetaFunction } from "react-router"
 import { Link } from "react-router"
+
+export const meta: MetaFunction = () => [
+  { title: "SmartCourse — AI-Powered Course Recommendations" },
+  { name: "description", content: "Discover the perfect courses tailored to your goals with AI-powered recommendations." },
+]
 import {
   Compass,
   GitCompare,
@@ -273,8 +279,8 @@ export default function Home() {
               <Logo size={32} />
               <span className="font-heading text-lg font-semibold text-white">SmartCourse</span>
             </div>
-            <p className="text-sm text-[#8a9a92]">
-              AI-Powered Course Recommendation System
+            <p className="text-xs text-[#8a9a92]">
+              © BC200401890 — Saif. All rights reserved.
             </p>
           </div>
         </div>

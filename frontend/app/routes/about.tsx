@@ -1,4 +1,10 @@
+import type { MetaFunction } from "react-router"
 import { Brain, Cpu, Layers } from "lucide-react"
+
+export const meta: MetaFunction = () => [
+  { title: "About — SmartCourse" },
+  { name: "description", content: "Learn about SmartCourse's AI-powered recommendation engine and tech stack." },
+]
 import { Badge } from "~/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
 
@@ -149,6 +155,10 @@ export default function About() {
           </CardContent>
         </Card>
       </div>
+
+      <p className="mt-8 text-center text-xs text-muted-foreground">
+        © BC200401890 — Saif. All rights reserved.
+      </p>
     </div>
   )
 }

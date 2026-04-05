@@ -1,4 +1,10 @@
+import type { MetaFunction } from "react-router"
 import { useState } from "react"
+
+export const meta: MetaFunction = () => [
+  { title: "Get Recommendations — SmartCourse" },
+  { name: "description", content: "Describe your learning goals and get personalized course recommendations powered by AI." },
+]
 import { Search } from "lucide-react"
 import { toast } from "sonner"
 import { CourseCard } from "~/components/course-card"
