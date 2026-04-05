@@ -54,19 +54,19 @@ const features = [
 
 const benefits = [
   {
-    title: "Semantic Search with Neural AI",
+    title: "Search by Meaning, Not Just Keywords",
     description:
-      "With advanced transformer models, you can find courses by meaning, not just keywords. Discover how we can enhance your learning.",
+      "The Neural model uses sentence embeddings to understand what you mean, so you get relevant courses even if your wording doesn't match the course description exactly.",
   },
   {
-    title: "Compare Recommendation Engines",
+    title: "Compare Two AI Models Side by Side",
     description:
-      "Run both TF-IDF and Neural models side by side to see how different AI approaches rank courses for your query.",
+      "Run both TF-IDF and Neural models on the same query and compare how they rank courses differently — keyword matching vs. semantic understanding.",
   },
   {
-    title: "AI-Driven Course Discovery",
+    title: "Save and Track Your Searches",
     description:
-      "Leverage the power of NLP to transform your learning journey, discovering courses faster and more effectively.",
+      "Bookmark courses you're interested in and review your past searches from the dashboard to pick up where you left off.",
   },
 ]
 
@@ -81,17 +81,17 @@ export default function Home() {
             className="animate-fade-up font-heading text-5xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
             style={{ animationDelay: "0ms" }}
           >
-            The Future of Learning
+            Find the Right Course
             <br />
-            with <span className="text-primary">Smart AI</span>
+            with <span className="text-primary">SmartCourse</span>
           </h1>
 
           <p
             className="animate-fade-up mx-auto mt-6 max-w-lg text-base leading-relaxed text-muted-foreground"
             style={{ animationDelay: "80ms" }}
           >
-            Expert AI to elevate your education. Let us chart the perfect
-            learning path for you.
+            Describe what you want to learn and get course recommendations
+            from 8,500+ courses using two AI models.
           </p>
 
           <div
@@ -133,12 +133,12 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="mb-14 text-center">
             <h2 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Efficient and Integrated
+              How SmartCourse
               <br />
-              Course Discovery
+              Works
             </h2>
             <p className="mt-3 text-[#8a9a92]">
-              Simplify your search with our AI-powered, quality-focused services.
+              Type a query, get recommendations from two different AI models, and save what you like.
             </p>
           </div>
 
@@ -221,10 +221,10 @@ export default function Home() {
           {/* Right: text with checkmarks */}
           <div>
             <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
-              Key Benefits of Our System for Your Learning Efficiency
+              What You Can Do with SmartCourse
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Our systems boost discovery, cut search time, and drive learning growth.
+              A straightforward tool for finding courses that match what you want to learn.
             </p>
             <div className="mt-10 space-y-8">
               {benefits.map((b, i) => (
@@ -253,11 +253,11 @@ export default function Home() {
       <section className="bg-[#142F32] py-24">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
-            From Query to Course in Seconds
+            Ready to Find Your Next Course?
           </h2>
           <p className="mx-auto mt-4 max-w-md text-[#8a9a92]">
-            Accelerate your learning with our technology. Reduce search time and
-            discover the perfect course now.
+            Describe what you want to learn and SmartCourse will recommend
+            matching courses from the dataset.
           </p>
           <Button asChild variant="outline" size="lg" className="mt-8 rounded-full border-[#E3FFCC] px-8 text-[#E3FFCC] hover:bg-[#E3FFCC] hover:text-[#142F32]">
             <Link to="/recommend">Start Exploring</Link>

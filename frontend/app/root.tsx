@@ -35,7 +35,7 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <main className="pt-16">
+      <main className="pt-24">
         <Outlet />
       </main>
     </>
