@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Search, Sparkles } from "lucide-react"
+import { Search } from "lucide-react"
 import { toast } from "sonner"
 import { CourseCard } from "~/components/course-card"
 import { Button } from "~/components/ui/button"
@@ -66,18 +66,13 @@ export default function Recommend() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-          <Sparkles className="h-5 w-5" />
-        </div>
-        <div>
-          <h1 className="font-heading text-2xl font-bold tracking-tight">
-            Course Recommendation Engine
-          </h1>
-          <p className="text-sm text-muted-foreground">
-            Describe what you want to learn in natural language
-          </p>
-        </div>
+      <div>
+        <h1 className="font-heading text-2xl font-bold tracking-tight">
+          Recommend
+        </h1>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Describe what you want to learn and we'll find the best courses
+        </p>
       </div>
 
       <Card className="mt-6">

@@ -14,7 +14,7 @@ export function Navbar() {
   const location = useLocation()
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
+    <header className="fixed top-0 right-0 left-0 z-50 bg-background/90 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2.5">
           <Logo size={32} />

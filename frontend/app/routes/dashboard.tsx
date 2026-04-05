@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { LayoutDashboard, Trash2 } from "lucide-react"
+import { Trash2 } from "lucide-react"
 import { toast } from "sonner"
 import { Badge } from "~/components/ui/badge"
 import { Button } from "~/components/ui/button"
@@ -54,18 +54,13 @@ export default function Dashboard() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-          <LayoutDashboard className="h-5 w-5" />
-        </div>
-        <div>
-          <h1 className="font-heading text-2xl font-bold tracking-tight">
-            Dashboard
-          </h1>
-          <p className="text-sm text-muted-foreground">
-            Your search history and saved recommendations
-          </p>
-        </div>
+      <div>
+        <h1 className="font-heading text-2xl font-bold tracking-tight">
+          Dashboard
+        </h1>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Your search history and saved recommendations
+        </p>
       </div>
 
       <Tabs defaultValue="history" className="mt-6">

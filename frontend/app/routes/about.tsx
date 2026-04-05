@@ -1,4 +1,4 @@
-import { Brain, Cpu, Database, Layers, Network, Workflow } from "lucide-react"
+import { Brain, Cpu, Layers } from "lucide-react"
 import { Badge } from "~/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
 
@@ -17,26 +17,18 @@ const techIcons: Record<string, typeof Brain> = {
 export default function About() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-          <Network className="h-5 w-5" />
-        </div>
-        <div>
-          <h1 className="font-heading text-2xl font-bold tracking-tight">
-            About SmartCourse
-          </h1>
-          <p className="text-sm text-muted-foreground">
-            Technical implementation details and system architecture
-          </p>
-        </div>
+      <div>
+        <h1 className="font-heading text-2xl font-bold tracking-tight">
+          About SmartCourse
+        </h1>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Technical implementation details and system architecture
+        </p>
       </div>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">
-        <Card className="">
+        <Card>
           <CardHeader className="pb-3">
-            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <Workflow className="h-4 w-4" />
-            </div>
             <CardTitle>System Overview</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-relaxed text-muted-foreground">
@@ -54,11 +46,8 @@ export default function About() {
           </CardContent>
         </Card>
 
-        <Card className="">
+        <Card>
           <CardHeader className="pb-3">
-            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <Layers className="h-4 w-4" />
-            </div>
             <CardTitle>Architecture</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-relaxed text-muted-foreground">
@@ -74,11 +63,8 @@ export default function About() {
           </CardContent>
         </Card>
 
-        <Card className="">
+        <Card>
           <CardHeader className="pb-3">
-            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400">
-              <Cpu className="h-4 w-4" />
-            </div>
             <CardTitle>
               TF-IDF Model
               <span className="ml-2 text-xs font-normal text-muted-foreground">
@@ -88,8 +74,7 @@ export default function About() {
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-relaxed text-muted-foreground">
             <p>
-              The TF-IDF (Term Frequency-Inverse Document Frequency) model uses
-              vectorization with N-Grams (Uni-Gram, Bi-Grams) to convert course
+              The TF-IDF model uses vectorization with N-Grams to convert course
               descriptions into numerical representations.
             </p>
             <p>
@@ -99,11 +84,8 @@ export default function About() {
           </CardContent>
         </Card>
 
-        <Card className="">
+        <Card>
           <CardHeader className="pb-3">
-            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400">
-              <Brain className="h-4 w-4" />
-            </div>
             <CardTitle>
               Neural Model
               <span className="ml-2 text-xs font-normal text-muted-foreground">
@@ -114,8 +96,7 @@ export default function About() {
           <CardContent className="space-y-3 text-sm leading-relaxed text-muted-foreground">
             <p>
               The Neural model uses Sentence-Transformers (all-MiniLM-L6-v2) to
-              generate dense embeddings that capture semantic meaning of course
-              descriptions.
+              generate dense embeddings that capture semantic meaning.
             </p>
             <p>
               It understands conceptual relationships between queries and
@@ -136,7 +117,7 @@ export default function About() {
                 return (
                   <div key={category}>
                     <div className="mb-3 flex items-center gap-2">
-                      <Icon className="h-4 w-4 text-primary" />
+                      <Icon className="h-4 w-4 text-muted-foreground" />
                       <h4 className="font-heading text-sm font-semibold">
                         {category}
                       </h4>
@@ -155,9 +136,6 @@ export default function About() {
 
         <Card className="md:col-span-2">
           <CardHeader className="pb-3">
-            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <Database className="h-4 w-4" />
-            </div>
             <CardTitle>Dataset</CardTitle>
           </CardHeader>
           <CardContent className="text-sm leading-relaxed text-muted-foreground">
@@ -170,13 +148,6 @@ export default function About() {
             </p>
           </CardContent>
         </Card>
-      </div>
-
-      <div className="mt-10 border-t border-border pt-6 text-center text-sm text-muted-foreground/60">
-        <p>
-          Project ID: F25PROJECTBBD65 (BC200401890) &middot; Supervisor:
-          Muhammad Bilal
-        </p>
       </div>
     </div>
   )
