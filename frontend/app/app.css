@@ -85,6 +85,41 @@
     --sidebar-ring: #142F32;
 }
 
+/* ── Dark theme ── */
+.dark {
+    --background: #0f1a1b;
+    --foreground: #e8e8e2;
+    --card: #162425;
+    --card-foreground: #e8e8e2;
+    --popover: #162425;
+    --popover-foreground: #e8e8e2;
+    --primary: #E3FFCC;
+    --primary-foreground: #0f1a1b;
+    --secondary: #1e3234;
+    --secondary-foreground: #e8e8e2;
+    --muted: #1e3234;
+    --muted-foreground: #8a9a92;
+    --accent: #254a4e;
+    --accent-foreground: #E3FFCC;
+    --destructive: #ef4444;
+    --border: #254a4e;
+    --input: #254a4e;
+    --ring: #E3FFCC;
+    --chart-1: #E3FFCC;
+    --chart-2: #f59e0b;
+    --chart-3: #818cf8;
+    --chart-4: #fb7185;
+    --chart-5: #a78bfa;
+    --sidebar: #162425;
+    --sidebar-foreground: #e8e8e2;
+    --sidebar-primary: #E3FFCC;
+    --sidebar-primary-foreground: #0f1a1b;
+    --sidebar-accent: #1e3234;
+    --sidebar-accent-foreground: #e8e8e2;
+    --sidebar-border: #254a4e;
+    --sidebar-ring: #E3FFCC;
+}
+
 @utility container {
     margin-inline: auto;
     max-width: 1200px;
@@ -110,4 +145,12 @@
 }
 .animate-fade-up {
     animation: fade-up 0.5s ease-out both;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+    animation: fade-in 0.3s ease-out both;
 }

@@ -135,7 +135,7 @@ export default function Home() {
       </section>
 
       {/* ── Features (dark) ── */}
-      <section className="flex min-h-screen flex-col justify-center bg-[#142F32] py-20">
+      <section className="flex min-h-screen flex-col justify-center bg-[#142F32] py-20 dark:bg-[#0a1415]">
         <div className="container mx-auto px-4">
           <div className="mb-14 text-center">
             <h2 className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -152,7 +152,7 @@ export default function Home() {
             {features.map((feature, i) => (
               <div
                 key={feature.title}
-                className="animate-fade-up group cursor-default rounded-2xl border border-[#254a4e] bg-[#1a3a3e] p-8 transition-all duration-300 hover:border-[#E3FFCC]/25"
+                className="animate-fade-up group cursor-default rounded-2xl border border-[#254a4e] bg-[#1a3a3e] p-8 transition-all duration-300 hover:border-[#E3FFCC]/25 dark:bg-[#111f21]"
                 style={{ animationDelay: `${i * 70}ms` }}
               >
                 <div className="flex items-start justify-between">
@@ -256,7 +256,7 @@ export default function Home() {
       </section>
 
       {/* ── CTA (dark) ── */}
-      <section className="bg-[#142F32] py-24">
+      <section className="bg-[#142F32] py-24 dark:bg-[#0a1415]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
             Ready to Find Your Next Course?
@@ -272,7 +272,7 @@ export default function Home() {
       </section>
 
       {/* ── Footer (dark) ── */}
-      <footer className="border-t border-[#254a4e] bg-[#142F32]">
+      <footer className="border-t border-[#254a4e] bg-[#142F32] dark:bg-[#0a1415]">
         <div className="container mx-auto px-4 py-10">
           <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
             <div className="flex items-center gap-2.5">

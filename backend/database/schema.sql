@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS courses (
     course_id INTEGER PRIMARY KEY,
     title TEXT NOT NULL,
     university TEXT,
+    department TEXT,
     difficulty_level TEXT,
     rating REAL,
     description TEXT

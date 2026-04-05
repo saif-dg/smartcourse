@@ -38,7 +38,7 @@ def get_saved():
     db = get_db()
     rows = db.execute(
         """SELECT sr.save_id, sr.user_id, sr.course_id, sr.saved_at,
-                  c.title, c.university, c.difficulty_level, c.rating, c.description
+                  c.title, c.university, c.department, c.difficulty_level, c.rating, c.description
            FROM saved_recommendations sr
            LEFT JOIN courses c ON sr.course_id = c.course_id
            ORDER BY sr.saved_at DESC"""
@@ -58,8 +58,8 @@ def load_courses_to_db(courses):
     db = get_db()
     for c in courses:
         db.execute(
-            "INSERT OR IGNORE INTO courses (course_id, title, university, difficulty_level, rating, description) VALUES (?, ?, ?, ?, ?, ?)",
-            (c["course_id"], c["course_title"], c["university"], c["difficulty"], c["rating"], c["description"]),
+            "INSERT OR IGNORE INTO courses (course_id, title, university, department, difficulty_level, rating, description) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (c["course_id"], c["course_title"], c["university"], c.get("department", ""), c["difficulty"], c["rating"], c["description"]),
         )
     db.commit()
     db.close()

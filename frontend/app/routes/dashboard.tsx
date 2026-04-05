@@ -5,8 +5,9 @@ export const meta: MetaFunction = () => [
   { title: "Dashboard — SmartCourse" },
   { name: "description", content: "View and manage your saved course recommendations." },
 ]
-import { Trash2 } from "lucide-react"
+import { Bookmark, Clock, Search, Trash2 } from "lucide-react"
 import { toast } from "sonner"
+import { Link } from "react-router"
 import { Badge } from "~/components/ui/badge"
 import { Button } from "~/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
@@ -82,11 +83,22 @@ export default function Dashboard() {
         <TabsContent value="history" className="mt-4">
           {history.length === 0 ? (
             <Card className="border-dashed">
-              <CardContent className="flex flex-col items-center gap-2 py-12 text-center">
-                <p className="text-muted-foreground">No search history yet.</p>
-                <p className="text-sm text-muted-foreground/60">
-                  Try searching for courses to get started!
-                </p>
+              <CardContent className="flex flex-col items-center gap-3 py-16 text-center">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
+                  <Clock className="h-6 w-6 text-muted-foreground" />
+                </div>
+                <div>
+                  <p className="font-medium text-foreground">No search history yet</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Your searches will appear here once you start exploring courses.
+                  </p>
+                </div>
+                <Button asChild variant="outline" size="sm" className="mt-2 gap-2 rounded-full">
+                  <Link to="/recommend">
+                    <Search className="h-3.5 w-3.5" />
+                    Start Searching
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
           ) : (
@@ -124,11 +136,22 @@ export default function Dashboard() {
         <TabsContent value="saved" className="mt-4">
           {saved.length === 0 ? (
             <Card className="border-dashed">
-              <CardContent className="flex flex-col items-center gap-2 py-12 text-center">
-                <p className="text-muted-foreground">No saved courses yet.</p>
-                <p className="text-sm text-muted-foreground/60">
-                  Save courses from the recommendation page!
-                </p>
+              <CardContent className="flex flex-col items-center gap-3 py-16 text-center">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
+                  <Bookmark className="h-6 w-6 text-muted-foreground" />
+                </div>
+                <div>
+                  <p className="font-medium text-foreground">No saved courses yet</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Bookmark courses from the recommendation page to save them here.
+                  </p>
+                </div>
+                <Button asChild variant="outline" size="sm" className="mt-2 gap-2 rounded-full">
+                  <Link to="/recommend">
+                    <Search className="h-3.5 w-3.5" />
+                    Find Courses
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
           ) : (

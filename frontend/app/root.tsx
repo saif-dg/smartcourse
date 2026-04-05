@@ -6,6 +6,7 @@ import {
   ScrollRestoration,
   isRouteErrorResponse,
 } from "react-router"
+import { ThemeProvider } from "next-themes"
 
 import type { Route } from "./+types/root"
 import "./app.css"
@@ -14,7 +15,7 @@ import { Toaster } from "~/components/ui/sonner"
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,8 +24,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
-        <Toaster />
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          {children}
+          <Toaster />
+        </ThemeProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
