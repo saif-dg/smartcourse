@@ -6,6 +6,7 @@ from data.loader import load_courses
 from database.db import init_db
 from database.models import load_courses_to_db
 from models.model_manager import initialize as init_models
+from routes.evaluate import evaluate_bp
 from routes.history import history_bp
 from routes.recommend import recommend_bp
 from routes.save import save_bp
@@ -16,6 +17,7 @@ CORS(app, origins=CORS_ORIGINS)
 app.register_blueprint(recommend_bp)
 app.register_blueprint(history_bp)
 app.register_blueprint(save_bp)
+app.register_blueprint(evaluate_bp)
 
 with app.app_context():
     init_db()

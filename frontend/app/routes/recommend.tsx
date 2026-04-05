@@ -21,7 +21,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs"
 import { Textarea } from "~/components/ui/textarea"
 import { fetchRecommendations, saveCourse } from "~/lib/api"
 import type { Course, RecommendResponse } from "~/lib/types"
@@ -224,18 +223,54 @@ export default function Recommend() {
           {response.model === "both" &&
           response.tfidf_results &&
           response.neural_results ? (
-            <Tabs defaultValue="tfidf">
-              <TabsList>
-                <TabsTrigger value="tfidf">TF-IDF Results</TabsTrigger>
-                <TabsTrigger value="neural">Neural Results</TabsTrigger>
-              </TabsList>
-              <TabsContent value="tfidf" className="mt-4">
-                {renderCourseList(response.tfidf_results)}
-              </TabsContent>
-              <TabsContent value="neural" className="mt-4">
-                {renderCourseList(response.neural_results)}
-              </TabsContent>
-            </Tabs>
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div>
+                <h3 className="mb-3 font-heading text-base font-semibold text-primary">
+                  TF-IDF Results
+                  <span className="ml-2 text-xs font-normal text-muted-foreground">
+                    (Keyword Matching)
+                  </span>
+                </h3>
+                <div className="grid gap-4">
+                  {response.tfidf_results.map((course, i) => (
+                    <div
+                      key={course.course_id}
+                      className="animate-fade-in"
+                      style={{ animationDelay: `${i * 60}ms` }}
+                    >
+                      <CourseCard
+                        course={course}
+                        onSave={handleSave}
+                        saving={savingId === course.course_id}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <h3 className="mb-3 font-heading text-base font-semibold text-primary">
+                  Neural Results
+                  <span className="ml-2 text-xs font-normal text-muted-foreground">
+                    (Semantic Understanding)
+                  </span>
+                </h3>
+                <div className="grid gap-4">
+                  {response.neural_results.map((course, i) => (
+                    <div
+                      key={course.course_id}
+                      className="animate-fade-in"
+                      style={{ animationDelay: `${i * 60}ms` }}
+                    >
+                      <CourseCard
+                        course={course}
+                        onSave={handleSave}
+                        saving={savingId === course.course_id}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           ) : (
             renderCourseList(response.results)
           )}
