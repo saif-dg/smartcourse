@@ -99,12 +99,8 @@ export default function Dashboard() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {history.map((entry, i) => (
-                    <TableRow
-                      key={entry.search_id}
-                      className="animate-fade-up"
-                      style={{ animationDelay: `${i * 40}ms` }}
-                    >
+                  {history.map((entry) => (
+                    <TableRow key={entry.search_id}>
                       <TableCell className="font-medium">
                         {entry.query_text}
                       </TableCell>
@@ -136,12 +132,8 @@ export default function Dashboard() {
             </Card>
           ) : (
             <div className="grid gap-4 md:grid-cols-2">
-              {saved.map((item, i) => (
-                <Card
-                  key={item.save_id}
-                  className="animate-fade-up"
-                  style={{ animationDelay: `${i * 60}ms` }}
-                >
+              {saved.map((item) => (
+                <Card key={item.save_id}>
                   <CardHeader className="pb-3">
                     <div className="flex items-start justify-between gap-2">
                       <div>

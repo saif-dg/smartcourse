@@ -51,12 +51,8 @@ export default function Recommend() {
   function renderCourseList(courses: Course[]) {
     return (
       <div className="grid gap-4 md:grid-cols-2">
-        {courses.map((course, i) => (
-          <div
-            key={course.course_id}
-            className="animate-fade-up"
-            style={{ animationDelay: `${i * 60}ms` }}
-          >
+        {courses.map((course) => (
+          <div key={course.course_id}>
             <CourseCard
               course={course}
               onSave={handleSave}

@@ -32,7 +32,7 @@ export default function About() {
       </div>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">
-        <Card className="animate-fade-up" style={{ animationDelay: "0ms" }}>
+        <Card className="">
           <CardHeader className="pb-3">
             <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Workflow className="h-4 w-4" />
@@ -54,7 +54,7 @@ export default function About() {
           </CardContent>
         </Card>
 
-        <Card className="animate-fade-up" style={{ animationDelay: "80ms" }}>
+        <Card className="">
           <CardHeader className="pb-3">
             <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Layers className="h-4 w-4" />
@@ -74,7 +74,7 @@ export default function About() {
           </CardContent>
         </Card>
 
-        <Card className="animate-fade-up" style={{ animationDelay: "160ms" }}>
+        <Card className="">
           <CardHeader className="pb-3">
             <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400">
               <Cpu className="h-4 w-4" />
@@ -99,7 +99,7 @@ export default function About() {
           </CardContent>
         </Card>
 
-        <Card className="animate-fade-up" style={{ animationDelay: "240ms" }}>
+        <Card className="">
           <CardHeader className="pb-3">
             <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400">
               <Brain className="h-4 w-4" />
@@ -125,7 +125,7 @@ export default function About() {
           </CardContent>
         </Card>
 
-        <Card className="animate-fade-up md:col-span-2" style={{ animationDelay: "320ms" }}>
+        <Card className="md:col-span-2">
           <CardHeader className="pb-3">
             <CardTitle>Tech Stack</CardTitle>
           </CardHeader>
@@ -153,7 +153,7 @@ export default function About() {
           </CardContent>
         </Card>
 
-        <Card className="animate-fade-up md:col-span-2" style={{ animationDelay: "400ms" }}>
+        <Card className="md:col-span-2">
           <CardHeader className="pb-3">
             <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Database className="h-4 w-4" />
