@@ -17,3 +17,6 @@ frontend/.react-router/
 
 # OS
 .DS_Store
+
+# Submission staging
+/_submission/
